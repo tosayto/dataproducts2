@@ -1,5 +1,5 @@
 ---
-title       : Usa Facts at 70s 
+title       : USA Facts at 70s 
 subtitle    : Income, Population etc.
 author      : Z Ozcan 
 job         : Internet
@@ -12,6 +12,11 @@ knit        : slidify::knit2slides
 ---
 
 ## ui.R
+- One picture is better than thousands words (numbers in this case).
+- It looks simple when you see the results, but it isn't.
+- Take the idea try it at home.
+- You can apply it in many different situations.
+
 
 ```
 library(shiny)
@@ -38,6 +43,9 @@ shinyUI(fluidPage(
 
 ## global.R
 
+- Why global.R?
+- If you need the same data in ui.R and server.R
+- You don't need to duplicate your data.
 
 ```
 stateDF = data.frame(State = state.name, state.x77)
@@ -51,6 +59,9 @@ names<-names(stateDF)
 
 ## server.R
 
+- Problems with renderGvis function
+- Solved with htmlOutput function in ui.R
+
 ```
 library(shiny)
 library(googleVis)
@@ -59,16 +70,12 @@ shinyServer(function(input, output) {
         output$factTitle<-renderText(
                 ...
         )     
-       
-        
   output$distPlot <- renderGvis({
 
           
           gchart = gvisGeoChart(...)
           return(gchart)
-
   })
-
 })
 
 ```
@@ -76,6 +83,9 @@ shinyServer(function(input, output) {
 ---  
 
 ## gvisGeochart function
+
+- For the completeness
+
 
 ```
 gchart = gvisGeoChart(data = stateDF,
@@ -89,4 +99,5 @@ gchart = gvisGeoChart(data = stateDF,
 
 ```
 
+Don't you think that every president must use this kind of applications?
  

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Usa Facts at 70s</title>
+  <title>USA Facts at 70s</title>
   <meta charset="utf-8">
-  <meta name="description" content="Usa Facts at 70s">
+  <meta name="description" content="USA Facts at 70s">
   <meta name="author" content="Z Ozcan">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Usa Facts at 70s</h1>
+    <h1>USA Facts at 70s</h1>
     <h2>Income, Population etc.</h2>
     <p>Z Ozcan<br/>Internet</p>
   </hgroup>
@@ -46,7 +46,14 @@
     <h2>ui.R</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>library(shiny)
+    <ul>
+<li>One picture is better than thousands words (numbers in this case).</li>
+<li>It looks simple when you see the results, but it isn&#39;t.</li>
+<li>Take the idea try it at home.</li>
+<li>You can apply it in many different situations.</li>
+</ul>
+
+<pre><code>library(shiny)
 
 shinyUI(fluidPage(
   # Application title
@@ -75,7 +82,13 @@ shinyUI(fluidPage(
     <h2>global.R</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>stateDF = data.frame(State = state.name, state.x77)
+    <ul>
+<li>Why global.R?</li>
+<li>If you need the same data in ui.R and server.R</li>
+<li>You don&#39;t need to duplicate your data.</li>
+</ul>
+
+<pre><code>stateDF = data.frame(State = state.name, state.x77)
 names&lt;-names(stateDF)
 
 </code></pre>
@@ -89,23 +102,24 @@ names&lt;-names(stateDF)
     <h2>server.R</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>library(shiny)
+    <ul>
+<li>Problems with renderGvis function</li>
+<li>Solved with htmlOutput function in ui.R</li>
+</ul>
+
+<pre><code>library(shiny)
 library(googleVis)
 shinyServer(function(input, output) {
 
         output$factTitle&lt;-renderText(
                 ...
         )     
-
-
   output$distPlot &lt;- renderGvis({
 
 
           gchart = gvisGeoChart(...)
           return(gchart)
-
   })
-
 })
 
 </code></pre>
@@ -119,7 +133,11 @@ shinyServer(function(input, output) {
     <h2>gvisGeochart function</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>gchart = gvisGeoChart(data = stateDF,
+    <ul>
+<li>For the completeness</li>
+</ul>
+
+<pre><code>gchart = gvisGeoChart(data = stateDF,
                                 locationvar = &quot;State&quot;,
                                 colorvar = input$x,
                                 options = list(region=&quot;US&quot;,
@@ -129,6 +147,8 @@ shinyServer(function(input, output) {
                                                ))
 
 </code></pre>
+
+<p>Don&#39;t you think that every president must use this kind of applications?</p>
 
   </article>
   <!-- Presenter Notes -->
